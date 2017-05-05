@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html ng-app="marvelDemo">
-
-  <head>
-    <meta charset="utf-8" />
-    <title>AngularJS Plunker</title>
-    <script>document.write('<base href="' + document.location + '" />');</script>
-    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    
-    <link rel="stylesheet" href="style.css" />
-    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.17"></script>
-    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>
-    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script data-require="angular-route@*" data-semver="1.2.16" src="http://code.angularjs.org/1.2.16/angular-route.js"></script>    <script src="app.js"></script>
-   <script language="JavaScript" src="md5.js"></script>
-  </head>
-
-  <body ng-controller="MainCtrl">
-   
-   <h4>Search for your Marvel Characters</h4>
-    <input type="text" ng-model="asyncSelected" placeholder="Search for you character" typeahead="characters for characters in getCharacters($viewValue)" typeahead-loading="loadingCharacters"  typeahead-on-select="selectCharacter($item);asyncSelected=''" class="form-control">
-    <i ng-show="loadingCharacters" class="glyphicon glyphicon-refresh"></i>
-
-   <div ng-if="showCharInfo">
-     <div ng-if="char.thumb" class="thumbnail"><img src="{{char.thumb}}" /></div>
-     <div class="charName"><b>{{char.name}}</b></div>
-     <div class="charDesc">{{char.desc}}</div>
-   </div>
-    
-  </body>
- 
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Marvel</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/foundation.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
+         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+        
+    </head>
+    <body ng-app="marvel">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</p>
+        <![endif]-->
+            <header>
+                <a href="http://developer.marvel.com/">
+                    <img src="images/logo.png" alt="Marvel">
+                </a>
+            </header>
+            <div class="row small-9 medium-8 large-8 columns">
+                <div ng-view></div>             
+            </div>
+            <footer>
+                <div class="row">
+                    <div class="columns small-12">
+                        Coded by: <a href="http://www.crouhana.com">Cyril Rouhana</a>
+                    </div>
+                    <div class="columns small-12">
+                        Technologies used: AngularJS, Zurb Foundation, CSS, JavaScript, HTML5
+                    </div>
+                </div>
+            </footer>
+            <script src="scripts/app.js"></script>
+            <script src="scripts/controllers/MainController.js"></script>
+            <script src="scripts/controllers/ComicController.js"></script>
+            <script src="scripts/services/marvel.js"></script>
+    </body>
 </html>

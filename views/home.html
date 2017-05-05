@@ -1,0 +1,21 @@
+<h1>
+    {{marvel.attributionText}}
+</h1>
+<div class="flexbox">
+    <section class="item small-12 medium-4 large-4 columns" ng-repeat="comic in marvel.data.results">
+        <div class="row">
+            <div>
+                <div class="img small-12 medium-12 large-12 columns">
+                    <a href="#/comic/{{$index}}">
+                        <img ng-src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"/>
+                    </a>
+                </div>    
+                <div class="small-12 medium-12 large-12 columns details">
+                    <h2>
+                        {{comic.name}}
+                    </h2>
+                </div>
+            </div>
+        </div> 
+    </section>
+</div>
